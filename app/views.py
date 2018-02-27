@@ -17,7 +17,6 @@ def index(request):
     g1=UserGroup.objects.get(id=1)
 
     g1.user.add(u1)
-
     u1.usergroup_set.add(g1)   #第二种方法
     return HttpResponse('OK')
 
