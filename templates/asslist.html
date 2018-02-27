@@ -1,0 +1,39 @@
+{% extends "master/layout.html" %}
+{% load helps %}
+{% block content %}
+{{ user }}
+<table border="1re solid red" width="50%">
+    {% for item in data %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>{%  mymethod item.id %}</td>
+        <td>{{ item.hostname }}</td>
+        <td>{{ item.create_date|date:"Y-m-d H:i:s" }}</td>
+        <td>{{ item.update_date|date:"Y-m-d H:i:s" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+
+{% if user %}
+    <h1>真</h1>
+{% else %}
+    <h1>假</h1>
+{% endif %}
+
+{% ifequal user 'alex' %}
+    <h1>{{ user }}</h1>
+{% else %}
+    <h1>非{{ user }}</h1>
+{% endifequal %}
+
+{% ifnotequal user 'alex' %}
+    <h1>{{ user }}</h1>
+{% else %}
+    <h1>非{{ user }}</h1>
+{% endifnotequal %}
+{% endblock %}
+
+
+
+

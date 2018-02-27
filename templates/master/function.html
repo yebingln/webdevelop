@@ -1,0 +1,17 @@
+<script>
+    $(function () {
+        var per_item=$.cookie("page_num");
+        if (per_item){
+            $('.count').val(per_item)
+        }else {
+            $.cookie("page_num",10,{'path':'/'})
+        }
+
+    });
+    <!--创建或修改cookie的值-->
+    $('.count').change(function () {
+        var value=$(this).val();
+        $.cookie("page_num",value,{path:'/'})
+    })
+
+</script>

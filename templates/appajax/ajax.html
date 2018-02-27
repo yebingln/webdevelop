@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input id="name" type="text">
+    <input type="button" value="点击执行ajax请求" onclick="DoAjax()">
+
+    <script src="/static/jQuery/jquery-1.8.2.min.js"></script>
+
+    <script type="text/javascript">
+    function DoAjax() {
+        var temp=$('#name').val();
+        $.ajax({
+            url:'appAjax/ajax',  <!--跳转到哪个URL-->
+            type:'POST',
+{#            data:{dat:temp},#}
+            <!--arg 是views.py里return的内容-->
+            success:function (arg) {
+                var obj=jQuery.parseJSON(arg);
+                console.log(obj.status);
+                console.log(obj.msg);
+                console.log(obj.data);
+                console.log('success');
+                $('#name').val(obj.msg);
+            },
+            error:function () {
+                console.log('failed');
+            }
+        });
+    }
+    </script>
+    </body>
+</html>
