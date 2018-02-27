@@ -19,4 +19,6 @@ def index(request):
     g1.user.add(u1)
 
     u1.usergroup_set.add(g1)   #第二种方法
-    return HttpResponse('OK')
+    return HttpResponse('OK'
+
+
